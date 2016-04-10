@@ -46,11 +46,11 @@ calendarDemoApp.controller('CalendarCtrl',
     };
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        $scope.alertMessage = (date.title + ': ' + date.description);
+        $scope.alertMessage = (date.title + ': ' + (date.description || ''));
     };
     /* alert on Drop */
      $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
-       $scope.alertMessage = ('Event Dropped to make dayDelta ' + delta);
+       $scope.alertMessage = ('Event Dropped to ' + delta);
     };
     /* alert on Resize */
     $scope.alertOnResize = function(event, delta, revertFunc, jsEvent, ui, view ){
@@ -72,7 +72,7 @@ calendarDemoApp.controller('CalendarCtrl',
     /* add custom event*/
     $scope.addEvent = function() {
       $scope.events.push({
-        title: 'Open Sesame',
+        title: 'This is a new event',
         start: new Date(y, m, 28),
         end: new Date(y, m, 29),
         className: ['openSesame']
