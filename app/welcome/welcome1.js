@@ -1,16 +1,22 @@
-/*
-*  AngularJs Fullcalendar Wrapper for the JQuery FullCalendar
-*  API @ http://arshaw.com/fullcalendar/
-*
-*  Angular Calendar Directive that takes in the [eventSources] nested array object as the ng-model and watches it deeply changes.
-*       Can also take in multiple event urls as a source object(s) and feed the events per view.
-*       The calendar will watch any eventSource array and update itself when a change is made.
-*
-*/
+'use strict';
+ 
+angular.module('myApp.welcome1', ['ngRoute'])
+ 
+.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/welcome1', {
+        templateUrl: 'welcome1/welcome1.html',
+        controller: 'WelcomeCtrl1'
+    });
+}])
+ 
+// .controller('WelcomeCtrl1', ['$scope','CommonProp', function($scope,CommonProp) {
+//  $scope.username = CommonProp.getUser();
+// }]);
 
-angular.module('ui.calendar', [])
-  .constant('uiCalendarConfig', {calendars: {}})
-  .controller('uiCalendarCtrl', ['$scope',
+
+
+
+ .controller('WelcomeCtrl1', ['$scope',
                                  '$locale', function(
                                   $scope,
                                   $locale){
@@ -41,7 +47,7 @@ angular.module('ui.calendar', [])
           e._id = eventSerialId++;
         }
         // This extracts all the information we need from the event. http://jsperf.com/angular-calendar-events-fingerprint/3
-        return "" + e._id + (e.id || '') + (e.title || '') + (e.description || '') + (e.url || '') + (+e.start || '') + (+e.end || '') +
+        return "" + e._id + (e.id || '') + (e.title || '') + (e.url || '') + (+e.start || '') + (+e.end || '') +
           (e.allDay || '') + (e.className || '') + extraEventSignature({event: e}) || '';
       };
 

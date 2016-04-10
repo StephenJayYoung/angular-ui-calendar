@@ -19,12 +19,12 @@ calendarDemoApp.controller('CalendarCtrl',
     // };
     /* event source that contains custom events on the scope */
     $scope.events = [
-      {title: 'All Day Event',start: new Date(y, m, 1)},
-      {title: 'Long Event',start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
-      {id: 999,title: 'Repeating Event',start: new Date(y, m, d - 3, 16, 0),allDay: false},
-      {id: 999,title: 'Repeating Event',start: new Date(y, m, d + 4, 16, 0),allDay: false},
-      {title: 'Birthday Party',start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
-      {title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+      {title: 'This is an event', description: 'This is an event that will be cool', start: new Date(y, m, 1)},
+      {title: 'Long Event', description: 'This is an event that will go very long', start: new Date(y, m, d - 5),end: new Date(y, m, d - 2)},
+      {id: 999,title: 'Repeating Event', description: 'This is thing that repeats a thing', start: new Date(y, m, d - 3, 16, 0),allDay: false},
+      {id: 999,title: 'Repeating Event', description: 'This is a description', start: new Date(y, m, d + 4, 16, 0),allDay: false},
+      {title: 'Birthday Party', description: 'This is a description', start: new Date(y, m, d + 1, 19, 0),end: new Date(y, m, d + 1, 22, 30),allDay: false},
+      {title: 'Click for Google', description: 'This is a description',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
     ];
     /* event source that calls a function on every view switch */
     $scope.eventsF = function (start, end, timezone, callback) {
@@ -39,14 +39,14 @@ calendarDemoApp.controller('CalendarCtrl',
        color: '#f00',
        textColor: 'yellow',
        events: [
-          {type:'party',title: 'Lunch',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-          {type:'party',title: 'Lunch 2',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
-          {type:'party',title: 'Click for Google',start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
+          {type:'party',title: 'Lunch', description: 'This is a description', start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+          {type:'party',title: 'Lunch 2', description: 'This is a description',start: new Date(y, m, d, 12, 0),end: new Date(y, m, d, 14, 0),allDay: false},
+          {type:'party',title: 'Click for Google', description: 'This is a description', start: new Date(y, m, 28),end: new Date(y, m, 29),url: 'http://google.com/'}
         ]
     };
     /* alert on eventClick */
     $scope.alertOnEventClick = function( date, jsEvent, view){
-        $scope.alertMessage = (date.title + ' was clicked ');
+        $scope.alertMessage = (date.title + ': ' + date.description);
     };
     /* alert on Drop */
      $scope.alertOnDrop = function(event, delta, revertFunc, jsEvent, ui, view){
